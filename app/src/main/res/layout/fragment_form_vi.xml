@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".FormVIFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
+
+
+        <View
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#F56666"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="20dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="@+id/navigation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ScrollView
+            android:id="@+id/scrollable"
+            android:layout_width="400dp"
+            android:layout_height="570dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/navigation">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:letterSpacing="0.2"
+                    android:text="VI. RISK SCREENING"
+                    android:textColor="#F56666"
+                    android:textSize="18.7dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.393"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/question1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="20dp"
+                    android:text="6.1 Hypertension/ Diabetes/ Hypercholesterolemia/ Renal Diseases"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="330dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/panel2"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/question1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/bloodSugar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="8dp"
+                            android:hint="Blood Sugar(write NA\nif not applicable)"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            android:textColorHint="#80000000"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:text="FBS Result :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toEndOf="@+id/bloodSugar"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/rbs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="8dp"
+                            android:text="RBS Result :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toEndOf="@+id/bloodSugar"
+                            app:layout_constraintTop_toBottomOf="@+id/fbs" />
+
+                        <TextView
+                            android:id="@+id/chk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="15dp"
+                            android:text="CHECK if DM clinical symtoms are present : "
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/bloodSugar" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/chk">
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Polyhagia"
+                                android:textColor="@color/black"
+                                android:textSize="8dp" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Polydipsia"
+                                android:textColor="@color/black"
+                                android:textSize="8dp" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Polyuria"
+                                android:textColor="@color/black"
+                                android:textSize="8dp" />
+
+                        </RadioGroup>
+
+                        <EditText
+                            android:id="@+id/editTextDate"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/date"
+                            android:drawablePadding="12dp"
+                            android:ems="10"
+                            android:hint="Date"
+                            android:inputType="date"
+                            android:paddingEnd="10dp"
+                            android:textColorHint="#80000000"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_gravity="bottom"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            tools:layout_editor_absoluteY="0dp" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Lipid Profile"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/lipidCard"
+                    android:layout_width="270dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/panel2"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginStart="10dp"
+                    app:cardElevation="10dp"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/totalCholesterol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Total Cholesterol :"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/hdl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HDL :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="@+id/totalCholesterol"
+                            app:layout_constraintTop_toBottomOf="@+id/totalCholesterol" />
+
+                        <TextView
+                            android:id="@+id/ldl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LDL :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="@+id/totalCholesterol"
+                            app:layout_constraintTop_toBottomOf="@+id/hdl" />
+
+                        <TextView
+                            android:id="@+id/vldl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="VLDL :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="@+id/totalCholesterol"
+                            app:layout_constraintTop_toBottomOf="@+id/ldl" />
+
+                        <TextView
+                            android:id="@+id/triglyceride"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Triglyceride :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="@+id/totalCholesterol"
+                            app:layout_constraintTop_toBottomOf="@+id/vldl" />
+
+                        <EditText
+                            android:id="@+id/editTextDate2"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/date"
+                            android:drawablePadding="12dp"
+                            android:layout_marginEnd="10dp"
+                            android:ems="10"
+                            android:hint="Date"
+                            android:inputType="date"
+                            android:paddingEnd="10dp"
+                            android:textColorHint="#80000000"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Urinalysis/\nUrine Dipst-\nick Test"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lipidCard" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/proteinCard"
+                    android:layout_marginTop="15dp"
+                    android:layout_width="270dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/panel2"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/lipidCard">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/protein"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="12dp"
+                            android:text="Protein :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/editTextDateP"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/date"
+                            android:drawablePadding="12dp"
+                            android:layout_marginEnd="10dp"
+                            android:ems="10"
+                            android:hint="Date"
+                            android:inputType="date"
+                            android:paddingEnd="10dp"
+                            android:textColorHint="#80000000"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ketonesCard"
+                    android:layout_width="270dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/panel2"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    android:layout_marginTop="5dp"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintStart_toEndOf="@+id/textView9"
+                    app:layout_constraintTop_toBottomOf="@+id/proteinCard">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/ketones"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="12dp"
+                            android:text="Ketones :"
+                            android:textColor="@color/black"
+                            android:textSize="9dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/editTextDateK"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:drawableEnd="@drawable/date"
+                            android:drawablePadding="12dp"
+                            android:ems="10"
+                            android:hint="Date"
+                            android:inputType="date"
+                            android:paddingEnd="10dp"
+                            android:textColorHint="#80000000"
+                            android:textSize="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/question2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="39dp"
+                    android:text="6.2 Chronic Respiratory Diseases (Asthma and COPD)"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ketonesCard" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="330dp"
+                    android:layout_height="290dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/panel2"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:cardMaxElevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/question2">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/chk2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:text="CHECK all applicable"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            app:layout_constraintStart_toEndOf="@+id/chk2"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/oneQ1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Breathlessness (or a 'need for air')"
+                                android:textColor="@color/black"
+                                android:textSize="8dp" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chronic cough"
+                                android:textColor="@color/black"
+                                android:textSize="8dp" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sputum (mucous) production"
+                                android:textColor="#000000"
+                                android:textSize="8dp"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chest tightness"
+                                android:textColor="#000000"
+                                android:textSize="8dp" />
+
+                            <RadioButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wheezing*"
+                                android:textColor="#000000"
+                                android:textSize="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="* These symptoms may be episodic or seasonal,\n vary over time and intensity and worse during ni-\nght and early morning"
+                                android:textColor="#FF0000"
+                                android:textSize="8dp" />
+
+                        </RadioGroup>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/continuee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollable" />
+
+        <EditText
+            android:id="@+id/testing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

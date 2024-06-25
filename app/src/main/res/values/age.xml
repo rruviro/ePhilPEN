@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="age_options">
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+    </string-array>
+</resources>
