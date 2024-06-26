@@ -19,6 +19,10 @@ class FormVFragment : Fragment() {
     ): View? {
         binding = FragmentFormVBinding.inflate(inflater,container,false)
 
+        val age = requireArguments().getInt("age")
+        val sex = requireArguments().getString("sex")
+        val sbp = binding.pressure.text.toString().toInt()
+
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_formVFragment_to_formIVFragment)
         }
@@ -32,16 +36,49 @@ class FormVFragment : Fragment() {
 
                     if (weightStr.isNotEmpty() && heightStr.isNotEmpty()) {
                         try {
-                            val weight = weightStr.toFloat()
-                            val height = heightStr.toFloat()
-                            val calculation = weight / (height * height) * 101000
-                            val test = calculation.toString()
 
-                            binding.index.setText(test)
+                            val weight = weightStr.toDouble()
+                            val height = heightStr.toDouble()
+
+                            val weightKg = weight * 0.4532592
+                            val heightCm = height / 100
+
+                            val calculation = weightKg / (heightCm * heightCm)
+
+                            val category = when (calculation) {
+                                in Double.MIN_VALUE..18.5 -> "Underweight"
+                                in 18.5..24.9 -> "Normal weight"
+                                in 25.0..29.9 -> "Overweight"
+                                in 30.0 .. Double.MAX_VALUE -> "Obese"
+                                else -> ""
+                            }
+
+                            binding.index.setText(category)
+
                         } catch (e: NumberFormatException) {
                             Toast.makeText(context, "Please enter valid numbers for weight and height.", Toast.LENGTH_SHORT).show()
                         }
                     }
+
+//                    val heightInt = heightStr.toInt()
+//                    if (sex == "Female"){
+//                        if (heightInt <= 80) {
+//                            try {
+//
+//                            } catch (e: NumberFormatException) {
+//                                Toast.makeText(context, "", Toast.LENGTH_SHORT)
+//                            }
+//                        }
+//                    } else {
+//                        if (heightInt <= 90) {
+//                            try {
+//
+//                            } catch (e: NumberFormatException) {
+//                                Toast.makeText(context, "", Toast.LENGTH_SHORT)
+//                            }
+//                        }
+//                    }
+
                     handler.postDelayed(this, 0) // Schedule itself again
                 }
             },0)
@@ -83,34 +120,29 @@ class FormVFragment : Fragment() {
                         val message = "Please enter your $missingField measurement."
                         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     } else {
-                        //while loop
-//                        val weight = binding.weight.text.toString().toFloat()
-//                        val height = binding.height.text.toString().toFloat()
-//                        val calculation = weight/height/height*101000
-//                        val test = calculation.toFloat().toString()
-//                        binding.index.setText(test)
+                        if (binding.smoker0.isChecked || binding.smoker1.isChecked) {
 
-                        val sbp = binding.pressure.text.toString()
-                        val age = requireArguments().getString("age")
-                        val sex = requireArguments().getString("sex")
+                            val childBundle = Bundle()
+                            childBundle.putInt("age", age)
+                            childBundle.putString("sex", sex)
+                            childBundle.putInt("sbp", sbp)
+                            childBundle.putString("smoker", "smoker")
+                            findNavController().navigate(R.id.action_formVFragment_to_formVIFragment, childBundle)
 
-                        val childBundle = Bundle()
-                        childBundle.putString("age", age)
-                        childBundle.putString("sex", sex)
-                        childBundle.putString("sbp", sbp)
+                        } else {
 
-//                        if (sex == "Female" && binding.waist.text <= 80) {
-//
-//                        }
+                            val childBundle = Bundle()
+                            childBundle.putInt("age", age)
+                            childBundle.putString("sex", sex)
+                            childBundle.putInt("sbp", sbp)
+                            childBundle.putString("smoker", "non-smoker")
+                            findNavController().navigate(R.id.action_formVFragment_to_formVIFragment, childBundle)
 
-                        findNavController().navigate(R.id.action_formVFragment_to_formVIFragment, childBundle)
-
+                        }
                     }
                 }
             }
-
         }
-
         return binding.root
     }
 

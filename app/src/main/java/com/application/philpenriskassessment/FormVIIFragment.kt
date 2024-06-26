@@ -22,13 +22,18 @@ class FormVIIFragment : Fragment() {
 
         binding.next.setOnClickListener {
 
-            val age = requireArguments().getString("age")
+            val age = requireArguments().getInt("age")
             val sex = requireArguments().getString("sex")
-            val sbp = requireArguments().getString("sbp")
+            val sbp = requireArguments().getInt("sbp")
+            val smoker = requireArguments().getString("smoker")
+            val cholesterol = requireArguments().getInt("cholesterol")
+
             val childBundle = Bundle()
-            childBundle.putString("age", age)
+            childBundle.putInt("age", age)
             childBundle.putString("sex", sex)
-            childBundle.putString("sbp", sbp)
+            childBundle.putInt("sbp", sbp)
+            childBundle.putString("smoker", smoker)
+            childBundle.putInt("cholesterol", cholesterol)
 
             findNavController().navigate(R.id.action_formVIIFragment_to_resultFragment, childBundle)
         }

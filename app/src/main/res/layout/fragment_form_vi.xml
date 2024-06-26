@@ -255,6 +255,18 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <EditText
+                            android:id="@+id/cholesterol"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:inputType="numberDecimal"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            android:textColorHint="#80000000"
+                            android:textSize="10dp"
+                            app:layout_constraintStart_toEndOf="@+id/totalCholesterol"
+                            app:layout_constraintTop_toTopOf="parent" />
+
                         <TextView
                             android:id="@+id/hdl"
                             android:layout_width="wrap_content"
@@ -552,16 +564,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollable" />
-
-        <EditText
-            android:id="@+id/testing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name"
-            app:layout_constraintStart_toEndOf="@+id/back"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

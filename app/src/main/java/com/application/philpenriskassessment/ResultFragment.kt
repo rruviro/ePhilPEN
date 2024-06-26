@@ -16,24 +16,46 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentResultBinding.inflate(inflater,container,false)
-        val bundle = arguments?.getString("value1")
-        val bundle2 = arguments?.getString("data_key2")
 
-        if (bundle != null && bundle2 != null) {
-            binding.title.text = bundle + bundle2
+        val age = requireArguments().getInt("age")
+        val sex = requireArguments().getString("sex")
+        val sbp = requireArguments().getInt("sbp")
+        val smoker = requireArguments().getString("smoker")
+        val cholesterol = requireArguments().getInt("cholesterol")
+        val checker =  sex + sbp + smoker + cholesterol + age
+        binding.title.text = checker
+
+        //algorithm
+        val green = 10
+        val yellow = 20
+        val orange = 30
+        val red = 40
+        val deepRed = 40
+
+        val patientCalculation = age + cholesterol + sbp
+        if (sex == "Male") {
+            if (smoker == "smoker"){
+                if (patientCalculation < green) {
+                    binding.results.setBackgroundColor(Color.GREEN)
+                } else if (patientCalculation < yellow) {
+                    binding.results.setBackgroundColor(Color.YELLOW)
+                } else if (patientCalculation < orange) {
+                    binding.results.setBackgroundColor(Color.parseColor("#FFCC99"))
+                } else if (patientCalculation < red) {
+                    binding.results.setBackgroundColor(Color.RED)
+                } else if (patientCalculation > deepRed) {
+                    binding.results.setBackgroundColor(Color.parseColor("#C70039"))
+                }
+            } else {
+                Toast.makeText(context, "non-smoker/male", Toast.LENGTH_SHORT).show()
+            }
         } else {
-            Toast.makeText(context, "Data not received", Toast.LENGTH_SHORT).show()
+            if (smoker == "smoker"){
+                Toast.makeText(context, "smoker/female", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "non-smoker/female", Toast.LENGTH_SHORT).show()
+            }
         }
-
-//        val gender = "male"
-//        val status = "smoker"
-//        val age = "40"
-//        val sbp = "120"
-//        if (gender == "male" && status == "smoker" && age == "40" && sbp == "120"){
-//                binding.results.setBackgroundColor(Color.BLUE)
-//            } else {
-//                Toast.makeText(context, "tae", Toast.LENGTH_SHORT).show()
-//            }
 
         return binding.root
     }

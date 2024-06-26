@@ -26,11 +26,11 @@ class FormIIFragment : Fragment() {
             if (binding.radioo1.isChecked && binding.radioo2.isChecked && binding.radioo3.isChecked && binding.radioo4.isChecked
                 && binding.radioo5.isChecked && binding.radioo6.isChecked && binding.radioo7.isChecked && binding.radioo8.isChecked
                 && binding.radioo9.isChecked && binding.radioo10.isChecked && binding.radioo11.isChecked && binding.radioo12.isChecked && binding.radioo13.isChecked) {
-                val age = arguments?.getString("age")
+                val age = arguments?.getString("age").toString().toInt()
                 val sex = arguments?.getString("sex")
 
                 val childBundle = Bundle()
-                childBundle.putString("age", age)
+                childBundle.putInt("age", age)
                 childBundle.putString("sex", sex)
                 findNavController().navigate(R.id.action_formIIFragment_to_formIIIFragment, childBundle)
             } else {

@@ -43,11 +43,11 @@ class FormIVFragment : Fragment() {
                 Toast.makeText(context, "Please choose an option for each question.", Toast.LENGTH_SHORT).show()
             } else {
 
-                val age = requireArguments().getString("age")
+                val age = requireArguments().getInt("age")
                 val sex = requireArguments().getString("sex")
 
                 val childBundle = Bundle()
-                childBundle.putString("age", age)
+                childBundle.putInt("age", age)
                 childBundle.putString("sex", sex)
                 findNavController().navigate(R.id.action_formIVFragment_to_formVFragment, childBundle)
 
