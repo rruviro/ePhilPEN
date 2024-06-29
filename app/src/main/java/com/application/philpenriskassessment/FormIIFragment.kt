@@ -26,11 +26,11 @@ class FormIIFragment : Fragment() {
             if (binding.radioo1.isChecked && binding.radioo2.isChecked && binding.radioo3.isChecked && binding.radioo4.isChecked
                 && binding.radioo5.isChecked && binding.radioo6.isChecked && binding.radioo7.isChecked && binding.radioo8.isChecked
                 && binding.radioo9.isChecked && binding.radioo10.isChecked && binding.radioo11.isChecked && binding.radioo12.isChecked && binding.radioo13.isChecked) {
-                val age = arguments?.getString("age").toString().toInt()
+                val age = arguments?.getString("age").toString()
                 val sex = arguments?.getString("sex")
 
                 val childBundle = Bundle()
-                childBundle.putInt("age", age)
+                childBundle.putString("age", age)
                 childBundle.putString("sex", sex)
                 findNavController().navigate(R.id.action_formIIFragment_to_formIIIFragment, childBundle)
             } else {
@@ -48,50 +48,50 @@ class FormIIFragment : Fragment() {
 
         binding.radioGroup1.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio1.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup2.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio2.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup3.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio3.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup4.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio4.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup5.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio5.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup6.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio6.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup7.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio7.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
@@ -103,36 +103,36 @@ class FormIIFragment : Fragment() {
 
         binding.radioGroup9.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio9.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup10.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio10.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup11.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio11.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup12.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio12.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 
         binding.radioGroup13.setOnCheckedChangeListener  { _, _ ->
             if (binding.radio13.isChecked) {
-                val bundle = requireArguments().getBundle("value1")
-                findNavController().navigate(R.id.action_formIIFragment_to_referFragment, bundle)
+                
+                findNavController().navigate(R.id.action_formIIFragment_to_referFragment)
             }
         }
 

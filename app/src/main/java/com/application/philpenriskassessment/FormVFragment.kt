@@ -1,11 +1,13 @@
 package com.application.philpenriskassessment
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
@@ -19,9 +21,8 @@ class FormVFragment : Fragment() {
     ): View? {
         binding = FragmentFormVBinding.inflate(inflater,container,false)
 
-        val age = requireArguments().getInt("age")
+        val age = requireArguments().getString("age")
         val sex = requireArguments().getString("sex")
-        val sbp = binding.pressure.text.toString().toInt()
 
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_formVFragment_to_formIVFragment)
@@ -33,6 +34,32 @@ class FormVFragment : Fragment() {
                 override fun run() {
                     val weightStr = binding.weight.text.toString()
                     val heightStr = binding.height.text.toString()
+
+                    binding.VradioGroup3.setOnCheckedChangeListener  { _, _ ->
+                        if (binding.no53.isChecked) {
+
+                            val dialog = AlertDialog.Builder(requireContext())
+                            val imageView = ImageView(requireContext())
+                            imageView.setImageResource(R.drawable.annex1)
+                            imageView.adjustViewBounds = true
+                            dialog.setView(imageView)
+                            dialog.show()
+
+                        }
+                    }
+
+                    binding.VradioGroup4.setOnCheckedChangeListener  { _, _ ->
+                        if (binding.yes54.isChecked) {
+
+                            val dialog = AlertDialog.Builder(requireContext())
+                            val imageView = ImageView(requireContext())
+                            imageView.setImageResource(R.drawable.annex2)
+                            imageView.adjustViewBounds = true
+                            dialog.setView(imageView)
+                            dialog.show()
+
+                        }
+                    }
 
                     if (weightStr.isNotEmpty() && heightStr.isNotEmpty()) {
                         try {
@@ -59,26 +86,6 @@ class FormVFragment : Fragment() {
                             Toast.makeText(context, "Please enter valid numbers for weight and height.", Toast.LENGTH_SHORT).show()
                         }
                     }
-
-//                    val heightInt = heightStr.toInt()
-//                    if (sex == "Female"){
-//                        if (heightInt <= 80) {
-//                            try {
-//
-//                            } catch (e: NumberFormatException) {
-//                                Toast.makeText(context, "", Toast.LENGTH_SHORT)
-//                            }
-//                        }
-//                    } else {
-//                        if (heightInt <= 90) {
-//                            try {
-//
-//                            } catch (e: NumberFormatException) {
-//                                Toast.makeText(context, "", Toast.LENGTH_SHORT)
-//                            }
-//                        }
-//                    }
-
                     handler.postDelayed(this, 0) // Schedule itself again
                 }
             },0)
@@ -103,9 +110,10 @@ class FormVFragment : Fragment() {
             if (anyRadioGroupEmpty) {
                 Toast.makeText(context, "Please choose an option for each question.", Toast.LENGTH_SHORT).show()
             } else {
-                val allFieldsEmpty = binding.waist.text.isNullOrEmpty() &&
+                val allFieldsEmpty = binding.weight.text.isNullOrEmpty() &&
                         binding.height.text.isNullOrEmpty() &&
-                        binding.pressure.text.isNullOrEmpty()
+                        binding.pressure.text.isNullOrEmpty() &&
+                        binding.waist.text.isNullOrEmpty()
 
                 if (allFieldsEmpty) {
                     Toast.makeText(context, "Please fill out all measurements.", Toast.LENGTH_SHORT).show()
@@ -113,6 +121,7 @@ class FormVFragment : Fragment() {
                     val missingField = when {
                         binding.weight.text.isEmpty() -> "weight"
                         binding.height.text.isEmpty() -> "height"
+                        binding.waist.text.isEmpty() -> "waist"
                         binding.pressure.text.isEmpty() -> "blood pressure"
                         else -> null
                     }
@@ -121,20 +130,20 @@ class FormVFragment : Fragment() {
                         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     } else {
                         if (binding.smoker0.isChecked || binding.smoker1.isChecked) {
-
+                            val sbp = binding.pressure.text.toString()
                             val childBundle = Bundle()
-                            childBundle.putInt("age", age)
+                            childBundle.putString("age", age)
                             childBundle.putString("sex", sex)
-                            childBundle.putInt("sbp", sbp)
+                            childBundle.putString("sbp", sbp)
                             childBundle.putString("smoker", "smoker")
                             findNavController().navigate(R.id.action_formVFragment_to_formVIFragment, childBundle)
 
                         } else {
-
+                            val sbp = binding.pressure.text.toString()
                             val childBundle = Bundle()
-                            childBundle.putInt("age", age)
+                            childBundle.putString("age", age)
                             childBundle.putString("sex", sex)
-                            childBundle.putInt("sbp", sbp)
+                            childBundle.putString("sbp", sbp)
                             childBundle.putString("smoker", "non-smoker")
                             findNavController().navigate(R.id.action_formVFragment_to_formVIFragment, childBundle)
 
