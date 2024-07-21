@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="166dp"
-        android:layout_height="158dp"
+        android:layout_width="195dp"
+        android:layout_height="183dp"
         android:layout_marginTop="220dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="ePhilPEN"
         android:textSize="20dp"
         android:textColor="@color/black"
